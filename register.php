@@ -5,6 +5,19 @@ header("Content-Type: application/json; charset=UTF-8");
 
 require_once 'db.php'; 
 
+$email    = $_POST['email'];
+$password = $_POST['password'];
+$alamat   = $_POST['alamat'];
+$no_hp    = $_POST['no_hp'];
+
+if (empty($email) || empty($password) || empty($alamat) || empty($no_hp)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Semua kolom (Email, Password, Alamat, No HP) wajib diisi!"
+    ]);
+    exit(); // Stop proses disini
+}
+
 $cekEmail = "SELECT * FROM users WHERE email = '$email'";
 $result   = $conn->query($cekEmail);
 
