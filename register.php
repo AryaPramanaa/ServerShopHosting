@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 require_once 'db.php'; 
 
 $cekEmail = "SELECT * FROM users WHERE email = '$email'";
-$result   = $connect->query($cekEmail);
+$result   = $conn->query($cekEmail);
 
 if ($result->num_rows > 0) {
     echo json_encode([
@@ -32,4 +32,4 @@ if ($result->num_rows > 0) {
     }
 }
 
-$connect->close();
+$conn->close();

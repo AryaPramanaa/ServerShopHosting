@@ -8,7 +8,7 @@ $email    = $_POST['email'];
 $password = $_POST['password']; 
 
 $sql = "SELECT * FROM users WHERE email = '$email'";
-$result = $connect->query($sql);
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
@@ -44,4 +44,4 @@ if ($result->num_rows > 0) {
     ]);
 }
 
-$connect->close();
+$conn->close();
