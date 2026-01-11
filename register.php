@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
     $sql = "INSERT INTO users (email, password, alamat, no_hp) 
             VALUES ('$email', '$hashed_password', '$alamat', '$no_hp')";
 
-    if ($connect->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         echo json_encode([
             "success" => true,
             "message" => "Registrasi Berhasil"
@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
     } else {
         echo json_encode([
             "success" => false,
-            "message" => "Gagal: " . $connect->error
+            "message" => "Gagal: " . $conn->error
         ]);
     }
 }
